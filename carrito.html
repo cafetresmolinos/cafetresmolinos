@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carrito</title>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let total = 0;
+
+window.onload = function(){
+let lista = document.getElementById("lista");
+
+carrito.forEach(item=>{
+lista.innerHTML += item.producto + "<br>";
+total += item.precio;
+});
+
+document.getElementById("total").innerText = total;
+}
+
+function comprar(){
+let mensaje = "Hola quiero comprar:%0A";
+
+carrito.forEach(p=>{
+mensaje += p.producto + "%0A";
+});
+
+mensaje += "Total: $" + total;
+
+window.open("https://wa.me/573217614873?text="+mensaje);
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>🛒 Tu carrito</h1>
+
+<p id="lista"></p>
+<p>Total: $<span id="total">0</span></p>
+
+<h3>💳 Pago</h3>
+<p>Nequi: 3217614873</p>
+
+<button onclick="comprar()">Finalizar compra</button>
+
+</body>
+</html>
