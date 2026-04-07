@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Productos</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+color:white;
+text-align:center;
+}
+
+.producto{
+background:rgba(0,0,0,0.8);
+margin:20px;
+padding:20px;
+border-radius:10px;
+}
+</style>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function agregar(producto, precio){
+carrito.push({producto, precio});
+localStorage.setItem("carrito", JSON.stringify(carrito));
+alert("Producto agregado al carrito");
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>☕ ¿Quieres probar nuestro café?</h1>
+
+<div class="producto">
+<h3>Café molido</h3>
+<p>Media libra (250 g)</p>
+<p>$10.500</p>
+<button onclick="agregar('Molido 250g',10500)">Agregar</button>
+</div>
+
+<div class="producto">
+<h3>Café molido</h3>
+<p>1 libra (500 g)</p>
+<p>$18.700</p>
+<button onclick="agregar('Molido 500g',18700)">Agregar</button>
+</div>
+
+<div class="producto">
+<h3>Café en grano</h3>
+<p>Media libra (250 g)</p>
+<p>$13.000</p>
+<button onclick="agregar('Grano 250g',13000)">Agregar</button>
+</div>
+
+<div class="producto">
+<h3>Café en grano</h3>
+<p>1 libra (500 g)</p>
+<p>$24.000</p>
+<button onclick="agregar('Grano 500g',24000)">Agregar</button>
+</div>
+
+<a href="carrito.html">🛒 Ver carrito</a>
+
+</body>
+</html>
